@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+
+    <div id="app_7">
+        <ol>
+            <todo-item
+            v-for="item in list"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+            ></todo-item>
+        </ol>
+
+        <div id="app_8">
+            <app-nav></app-nav>
+            <app-view>
+                <app-sidebar></app-sidebar>
+                <app-content></app-content>
+            </app-view>
+        </div>
+    </div>
+    <script>
+
+        Vue.component('todo-item',{
+            props:['todo'],
+            template:'<li>{{todo.id}},{{todo.text}}</li>'
+        })
+        var app7=new Vue({
+            el:'#app_7',
+            data:{
+                list:[
+                    {id:0,text:'内存'},
+                    {id:1,text:'显卡'},
+                    {id:2,text:'芯片'},
+
+                ]
+            }
+        })
+
+    </script>
+</body>
+
+</html>
